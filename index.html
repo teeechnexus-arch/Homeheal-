@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HealHome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-header">
+        <div>
+            <h1>HealHome</h1>
+            <p>AI Health & Medicine Assistant</p>
+        </div>
+        <button class="login-btn" onclick="openLoginModal()">Login</button>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2>Login to HealHome</h2>
+        <form onsubmit="loginUser(event)">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginMessage"></p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>💬 AI Health Chat</h2>
+        <div id="chat" class="chat-box"></div>
+        <div class="chat-input">
+            <input id="userInput" placeholder="Describe your symptoms">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>📄 Upload Prescription</h2>
+            <input type="file" id="fileInput">
+            <button onclick="uploadFile()">Upload</button>
+        </div>
+
+        <div class="card">
+            <h2>⏰ Medicine Reminder</h2>
+
+            <select id="medicine" onchange="updateDosage()">
+                <option value="">-- Select Medicine --</option>
+                <option value="paracetamol">Paracetamol</option>
+                <option value="crocin">Crocin</option>
+                <option value="azithromycin">Azithromycin</option>
+                <option value="amoxicillin">Amoxicillin</option>
+                <option value="cetirizine">Cetirizine</option>
+                <option value="ibuprofen">Ibuprofen</option>
+            </select>
+
+            <input type="time" id="time">
+            <p id="dosageText" class="dosage"></p>
+
+            <button onclick="setReminder()">Set Reminder</button>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+⚠️ This app gives basic guidance only. Consult a doctor.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
